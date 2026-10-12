@@ -1,0 +1,26 @@
+services:
+  radmin-vpn:
+    container_name: radmin-vpn
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+
+    # Necessário para que o TAP e as rotas do projeto
+    # possam ser configurados no namespace de rede do host.
+    network_mode: host
+
+    cap_add:
+      - NET_ADMIN
+
+    devices:
+      - /dev/net/tun:/dev/net/tun
+
+    environment:
+      VNC_PASSWORD: "TROQUE_POR_UMA_SENHA_FORTE"
+
+    volumes:
+      - radmin_data:/opt/radmin/wineprefix
+
+volumes:
+  radmin_data:
