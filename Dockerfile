@@ -32,6 +32,7 @@ RUN printf '#!/bin/sh\nif [ "$1" = "-v" ]; then exit 0; fi\nif [ "$#" -eq 0 ]; t
       > /usr/local/bin/sudo \
  && chmod +x /usr/local/bin/sudo \
  && chmod +x /opt/radmin/run_datacenter.sh \
+ && chmod +x /opt/radmin/docker-entrypoint.sh \
  && make
 
 EXPOSE 6080
