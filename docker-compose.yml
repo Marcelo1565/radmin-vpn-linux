@@ -17,7 +17,7 @@ services:
       - /dev/net/tun:/dev/net/tun
 
     environment:
-      VNC_PASSWORD: "TROQUE_POR_UMA_SENHA_FORTE"
+      VNC_PASSWORD: "${VNC_PASSWORD}"
 
     volumes:
       - radmin_data:/opt/radmin/wineprefix
