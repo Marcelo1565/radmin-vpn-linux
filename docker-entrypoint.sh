@@ -3,6 +3,10 @@ set -Eeuo pipefail
 
 cd /opt/radmin
 
+# Perfil persistente do Wine
+export WINEPREFIX="${WINEPREFIX:-/opt/radmin/wineprefix}"
+export WINEDEBUG="${WINEDEBUG:--all}"
+
 if [[ -z "${VNC_PASSWORD:-}" ]]; then
   echo "ERRO: configure VNC_PASSWORD na Stack do Portainer."
   exit 1
